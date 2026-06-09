@@ -1,5 +1,5 @@
 'use strict';
-// BlockDown marketing site — a tiny, dependency-free static file server.
+// Blockdown marketing site. A tiny, dependency-free static file server.
 // Run with `npm start` (or `node server.js`). Set PORT to override 4321.
 const http = require('http');
 const fs = require('fs');
@@ -20,6 +20,7 @@ const MIME = {
   '.json': 'application/json',
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
+  '.exe': 'application/octet-stream',
 };
 
 const server = http.createServer((req, res) => {
@@ -35,7 +36,7 @@ const server = http.createServer((req, res) => {
     fs.readFile(filePath, (err, data) => {
       if (err) {
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-        return res.end('<!doctype html><meta charset="utf-8"><title>404</title><h1>404 — not found</h1>');
+        return res.end('<!doctype html><meta charset="utf-8"><title>404</title><h1>404 not found</h1>');
       }
       const ext = path.extname(filePath).toLowerCase();
       res.writeHead(200, {
@@ -52,5 +53,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`BlockDown site → http://localhost:${PORT}`);
+  console.log('Blockdown site running at http://localhost:' + PORT);
 });

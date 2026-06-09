@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <!-- animated aurora background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
   <!-- NAV -->
   <header class="nav">
     <a class="brand" href="#top">
@@ -20,8 +27,10 @@
     </a>
     <nav class="nav-links">
       <a href="#features">Features</a>
+      <a href="#compare">vs Markdown</a>
+      <a href="#uses">Use cases</a>
+      <a href="#shortcuts">Shortcuts</a>
       <a href="#pricing">Pricing</a>
-      <a href="#export">Export</a>
       <a href="https://github.com/iamhaidar2/blockdown-app">GitHub</a>
     </nav>
     <a class="btn btn-sm" href="#download">Download</a>
@@ -30,9 +39,8 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy reveal">
           <span class="pill">Free and open source</span>
           <h1>Write markdown in <span class="grad">blocks</span>.</h1>
           <p class="lede">
@@ -48,9 +56,9 @@
           <p class="trust">No account required. No tracking. Your files stay on your machine.</p>
         </div>
 
-        <div class="hero-art">
+        <div class="hero-art reveal">
           <img class="hero-logo" src="/logo.svg" alt="Blockdown logo" width="150" height="150" />
-          <div class="mock" aria-hidden="true">
+          <div class="mock">
             <div class="mock-bar"><i></i><i></i><i></i></div>
             <div class="mock-body">
               <div class="m-h1">Project notes</div>
@@ -67,60 +75,124 @@
 
     <!-- FEATURES -->
     <section id="features" class="section">
-      <h2 class="section-title">Features</h2>
-      <p class="section-sub">The same editor works on your desktop and in the browser.</p>
+      <h2 class="section-title reveal">Features</h2>
+      <p class="section-sub reveal">The same editor works on your desktop and in the browser.</p>
       <div class="cards">
-        <article class="card">
-          <div class="ic">🧱</div>
-          <h3>Block editor</h3>
-          <p>Build pages from headings, callouts, quotes, to-dos, code, tables, columns and images. Drag to reorder. Each block type has a keyboard shortcut.</p>
-        </article>
-        <article class="card">
-          <div class="ic">✨</div>
-          <h3>AI writer <span class="tag">Pro</span></h3>
-          <p>Ask Claude to draft, rewrite, expand, summarize or change the tone of your text. It happens in the document, not a side chat.</p>
-        </article>
-        <article class="card">
-          <div class="ic">✓</div>
-          <h3>Grammar <span class="tag">Pro</span></h3>
-          <p>Get grammar and style fixes you can accept one at a time. Your formatting doesn't get touched.</p>
-        </article>
-        <article class="card">
-          <div class="ic">⤓</div>
-          <h3>Export</h3>
-          <p>Send your document to Markdown, HTML, PDF or Word with one click. Colors and callouts survive the export.</p>
-        </article>
-        <article class="card">
-          <div class="ic">🛡️</div>
-          <h3>Works offline</h3>
-          <p>The desktop app runs with no internet connection and no account. It does not upload your documents anywhere.</p>
-        </article>
-        <article class="card">
-          <div class="ic">☁️</div>
-          <h3>Cloud sync</h3>
-          <p>Sign in on the web and your documents save to the cloud, so you can open them on another computer.</p>
-        </article>
+        <article class="card reveal"><div class="ic">🧱</div><h3>Block editor</h3><p>Build pages from headings, callouts, quotes, to-dos, code, tables, columns and images. Drag to reorder. Each block type has a keyboard shortcut.</p></article>
+        <article class="card reveal"><div class="ic">✨</div><h3>AI writer <span class="tag">Pro</span></h3><p>Ask Claude to draft, rewrite, expand, summarize or change the tone of your text. It happens in the document, not a side chat.</p></article>
+        <article class="card reveal"><div class="ic">✓</div><h3>Grammar <span class="tag">Pro</span></h3><p>Get grammar and style fixes you can accept one at a time. Your formatting doesn't get touched.</p></article>
+        <article class="card reveal"><div class="ic">⤓</div><h3>Export</h3><p>Send your document to Markdown, HTML, PDF or Word with one click. Colors and callouts survive the export.</p></article>
+        <article class="card reveal"><div class="ic">🛡️</div><h3>Works offline</h3><p>The desktop app runs with no internet connection and no account. It does not upload your documents anywhere.</p></article>
+        <article class="card reveal"><div class="ic">☁️</div><h3>Cloud sync</h3><p>Sign in on the web and your documents save to the cloud, so you can open them on another computer.</p></article>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare" class="section">
+      <h2 class="section-title reveal">Markdown vs Blockdown</h2>
+      <p class="section-sub reveal">Blockdown keeps what is good about Markdown and drops the parts people get stuck on.</p>
+      <div class="cmp reveal">
+        <table>
+          <thead>
+            <tr><th></th><th>Plain Markdown</th><th class="hl">Blockdown</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Editing</td><td>You type symbols like # and * by hand.</td><td class="hl">You click a block or press a shortcut.</td></tr>
+            <tr><td>Structure</td><td>It is one long text file.</td><td class="hl">Each part is a block you can move.</td></tr>
+            <tr><td>Color and callouts</td><td>Plain text only.</td><td class="hl">Headings, callouts and highlights have color.</td></tr>
+            <tr><td>Tables</td><td>Pipe and dash syntax that breaks easily.</td><td class="hl">A table you edit in place.</td></tr>
+            <tr><td>Images</td><td>A link to a file you manage yourself.</td><td class="hl">Paste an image straight in.</td></tr>
+            <tr><td>Export</td><td>Markdown, plus whatever your tool adds.</td><td class="hl">Markdown, HTML, PDF and Word in one click.</td></tr>
+            <tr><td>Learning curve</td><td>You memorize the syntax.</td><td class="hl">There is nothing to memorize.</td></tr>
+            <tr><td>The file itself</td><td>Markdown.</td><td class="hl">Still clean Markdown underneath.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="uses" class="section">
+      <h2 class="section-title reveal">What people write with it</h2>
+      <p class="section-sub reveal">Anything that is better with structure than with a blank page.</p>
+      <div class="cards">
+        <article class="card reveal"><div class="ic">📝</div><h3>Meeting notes</h3><p>Headings per topic, checklists for action items, callouts for decisions.</p></article>
+        <article class="card reveal"><div class="ic">📦</div><h3>READMEs and docs</h3><p>Code blocks, tables and clean Markdown that drops straight into a repo.</p></article>
+        <article class="card reveal"><div class="ic">✍️</div><h3>Blog posts</h3><p>Draft in blocks, export to Markdown or HTML for your site.</p></article>
+        <article class="card reveal"><div class="ic">🎓</div><h3>Study notes</h3><p>Color-code topics, highlight key lines, keep code samples tidy.</p></article>
+        <article class="card reveal"><div class="ic">📋</div><h3>Project plans</h3><p>Briefs with callouts, owners in checklists, columns for side-by-side notes.</p></article>
+        <article class="card reveal"><div class="ic">📄</div><h3>Reports for Word</h3><p>Write once and export a clean .docx with colors and callouts intact.</p></article>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section id="who" class="section">
+      <h2 class="section-title reveal">Who it is for</h2>
+      <div class="audience">
+        <div class="aud reveal"><span class="aud-ic">👩‍💻</span><div><h3>Developers</h3><p>Write READMEs and docs in real Markdown without fighting the syntax.</p></div></div>
+        <div class="aud reveal"><span class="aud-ic">🖊️</span><div><h3>Writers and bloggers</h3><p>Draft posts in blocks and export clean Markdown or HTML.</p></div></div>
+        <div class="aud reveal"><span class="aud-ic">🎓</span><div><h3>Students</h3><p>Take notes that are easy to scan, then export to PDF to study or share.</p></div></div>
+        <div class="aud reveal"><span class="aud-ic">📊</span><div><h3>Product and PMs</h3><p>Briefs, specs and plans with callouts and checklists built in.</p></div></div>
+        <div class="aud reveal"><span class="aud-ic">🔬</span><div><h3>Researchers</h3><p>Keep notes with code, tables and citations, and export to Word.</p></div></div>
+        <div class="aud reveal"><span class="aud-ic">🧩</span><div><h3>Anyone who likes Markdown</h3><p>Get the clean output without typing the symbols by hand.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHORTCUTS -->
+    <section id="shortcuts" class="section">
+      <h2 class="section-title reveal">Keyboard shortcuts</h2>
+      <p class="section-sub reveal">Every block has one. On a Mac, use Cmd instead of Ctrl.</p>
+      <div class="sc-grid">
+        <div class="sc-col reveal">
+          <h3>Insert a block</h3>
+          <p class="sc-note">Hold <span class="kbd">Ctrl</span> <span class="kbd">Alt</span> and press:</p>
+          <ul class="sc-list">
+            <li><span class="kbd">1</span><span class="kbd">2</span><span class="kbd">3</span> Heading 1, 2, 3</li>
+            <li><span class="kbd">0</span> Text</li>
+            <li><span class="kbd">C</span> Callout</li>
+            <li><span class="kbd">Q</span> Quote</li>
+            <li><span class="kbd">L</span> Bullet list</li>
+            <li><span class="kbd">N</span> Numbered list</li>
+            <li><span class="kbd">K</span> Checklist</li>
+            <li><span class="kbd">T</span> Table</li>
+            <li><span class="kbd">I</span> Image</li>
+            <li><span class="kbd">M</span> Columns</li>
+            <li><span class="kbd">E</span> Code</li>
+            <li><span class="kbd">D</span> Divider</li>
+          </ul>
+        </div>
+        <div class="sc-col reveal">
+          <h3>Edit and format</h3>
+          <ul class="sc-list">
+            <li><span class="kbd">Ctrl</span><span class="kbd">B</span> Bold</li>
+            <li><span class="kbd">Ctrl</span><span class="kbd">I</span> Italic</li>
+            <li><span class="kbd">Ctrl</span><span class="kbd">E</span> Switch between edit and view</li>
+            <li><span class="kbd">Esc</span> Leave view mode</li>
+            <li><span class="kbd">Ctrl</span><span class="kbd">V</span> Paste an image or text</li>
+            <li><span class="kbd">Enter</span> New item in a checklist or list</li>
+            <li>Drag the handle to reorder a block</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- EXPORT STRIP -->
     <section id="export" class="section export">
-      <h2 class="section-title">Four export formats</h2>
-      <div class="formats">
+      <h2 class="section-title reveal">Four export formats</h2>
+      <div class="formats reveal">
         <span class="fmt">.md</span>
         <span class="fmt">.html</span>
         <span class="fmt">.pdf</span>
         <span class="fmt">.docx</span>
       </div>
-      <p class="section-sub">Write once and export to any of these. The layout holds up in each one.</p>
+      <p class="section-sub reveal">Write once and export to any of these. The layout holds up in each one.</p>
     </section>
 
     <!-- PRICING -->
     <section id="pricing" class="section">
-      <h2 class="section-title">Pricing</h2>
-      <p class="section-sub">Free to start. You only pay if you want the AI features.</p>
+      <h2 class="section-title reveal">Pricing</h2>
+      <p class="section-sub reveal">Free to start. You only pay if you want the AI features.</p>
       <div class="tiers">
-        <article class="tier">
+        <article class="tier reveal">
           <h3>Desktop</h3>
           <div class="price">Free</div>
           <p class="tier-note">The full editor, offline.</p>
@@ -131,7 +203,7 @@
           </ul>
           <a class="btn btn-block" href="#download">Download</a>
         </article>
-        <article class="tier featured">
+        <article class="tier featured reveal">
           <div class="ribbon">Most chosen</div>
           <h3>Pro</h3>
           <div class="price">AI</div>
@@ -143,7 +215,7 @@
           </ul>
           <a class="btn btn-block" href="https://github.com/iamhaidar2/blockdown-app">Get Pro</a>
         </article>
-        <article class="tier">
+        <article class="tier reveal">
           <h3>Online</h3>
           <div class="price">Free</div>
           <p class="tier-note">A free account with cloud storage.</p>
@@ -159,7 +231,7 @@
 
     <!-- DOWNLOAD -->
     <section id="download" class="section download">
-      <div class="dl-card">
+      <div class="dl-card reveal">
         <img src="/logo.svg" alt="" width="64" height="64" />
         <div class="dl-text">
           <h2>Download for Windows</h2>
@@ -183,6 +255,24 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Reveal-on-scroll, built so the page is never blank: content only starts
+    // hidden once the "js" class is set, and a failsafe reveals everything even
+    // if the observer never fires.
+    (function () {
+      var html = document.documentElement;
+      var items = document.querySelectorAll('.reveal');
+      var show = function (el) { el.classList.add('in'); };
+      html.classList.add('js');
+      setTimeout(function () { items.forEach(show); }, 1500);
+      try {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || !('IntersectionObserver' in window)) { items.forEach(show); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+        items.forEach(function (el) { io.observe(el); });
+      } catch (err) { items.forEach(show); }
+    })();
   </script>
 </body>
 </html>

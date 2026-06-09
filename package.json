@@ -1,0 +1,13 @@
+{
+  "name": "blockdown-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BlockDown promotional website — a zero-dependency Node static server.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -214,6 +214,7 @@ code {
 .download { text-align: center; }
 .dl-card { display: flex; align-items: center; gap: 1.5rem; text-align: left; background: rgba(22, 163, 74, 0.07); border: 1px solid var(--green); border-radius: 22px; padding: 2rem; box-shadow: var(--shadow), 0 0 34px rgba(22, 163, 74, 0.2); }
 .dl-card .dl-text { flex: 1; }
+.dl-btns { display: flex; gap: 10px; flex-wrap: wrap; }
 .dl-card h2 { font-size: 1.6rem; font-weight: 800; }
 .dl-card p { color: var(--muted); margin: 0.4rem 0 0; }
 .dl-foot { color: var(--muted); font-size: 0.9rem; margin-top: 1.3rem; text-align: center; }

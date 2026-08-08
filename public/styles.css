@@ -224,6 +224,9 @@ code {
 .footer .brand { justify-content: center; margin-bottom: 0.6rem; }
 .footer p { color: var(--muted); margin: 0.3rem 0; }
 .footer .copy { font-size: 0.85rem; opacity: 0.8; }
+.footer-legal { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin: 0.7rem 0 0.2rem; font-size: 0.9rem; }
+.footer-legal a { color: var(--muted); transition: color 0.15s ease; }
+.footer-legal a:hover { color: var(--green-d); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 880px) {

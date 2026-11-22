@@ -1,0 +1,38 @@
+# blockdown.io runs on Hostinger as plain files: the web app is set to
+# Framework "Other", Output directory "public", no Entry file, so no Node
+# process runs on the server. These rules do what server.js does there;
+# server.js is only for previewing the site locally (npm start).
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# The app downloads, sent as plain downloads like server.js did.
+AddType application/octet-stream .exe .dmg
+
+RewriteEngine On
+
+# Folders without an index page answer 404, like server.js.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html !-f
+RewriteRule ^ - [R=404,L]
+
+# Hostinger caches files for 7 days by default; set our own times instead.
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Pages, styles and scripts: browsers check for a newer copy on every visit,
+  # so a push to GitHub shows up straight away.
+  <FilesMatch "\.(html|css|js|json|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # Images, fonts and downloads: kept for an hour, like server.js.
+  <FilesMatch "\.(svg|png|jpe?g|webp|ico|woff2?|exe|dmg)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>

@@ -1,7 +1,8 @@
 # Blockdown marketing site
 
-The promotional website for [Blockdown](https://github.com/iamhaidar2/blockdown-app),
-served by a small, zero-dependency Node.js static server.
+The promotional website for [Blockdown](https://github.com/iamhaidar2/blockdown-app).
+Hostinger serves `public/` as plain files; the small, zero-dependency Node.js static
+server is only for previewing it locally.
 
 ```sh
 npm start            # http://localhost:4321
@@ -14,10 +15,12 @@ No `npm install` needed. It uses only Node's built-in `http`/`fs` modules.
 
 ```
 .
-  server.js          tiny static server (path-traversal-safe, correct MIME types)
+  server.js          tiny static server for local preview (path-traversal-safe, correct MIME types)
   package.json       start script + engines (node >= 18)
   public/
+    .htaccess        Hostinger rules: 404 page, download types, headers, cache times
     index.html       the landing page
+    404.html         the "not found" page
     styles.css       Slate + Indigo theme
     logo.svg         Blockdown mark: a "B" next to a blinking down arrow
     downloads/       the Windows installer the Download button points to
@@ -32,7 +35,12 @@ animates even when the file is used as an `<img>` or favicon.
 
 ## Deploy
 
-It is static files plus a static server, so most hosts work:
+blockdown.io is a Hostinger web app connected to this repo with **Framework: Other**,
+**Build command: None**, **Output directory: `public`** and an empty **Entry file**.
+Every push to `main` publishes `public/` about 15 seconds later. No Node process runs
+on the server: the hosting plan's process limit is shared by every site on it, and a
+running Node app uses about 11 of its 120.
 
-- Static hosts (GitHub Pages, Netlify, Vercel, Cloudflare Pages, Hostinger): serve the `public/` folder.
-- Node hosts (Render, Railway, Fly): run `npm start`; it honors `PORT`.
+`public/.htaccess` does on Hostinger what `server.js` does locally: `404.html` for
+unknown paths, the installers sent as plain downloads, `nosniff`, and cache times
+(pages and CSS are re-checked on every visit, so a push shows up straight away).
